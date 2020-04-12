@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Auth;
 class BlogsTableSeeder extends Seeder
 {
     /**
@@ -21,21 +21,21 @@ class BlogsTableSeeder extends Seeder
         
         $tagIds = $tags->pluck('id');
         
-        //$productCategoryIds = \DB::table('product_categories')->get()->pluck('id');
+        $blogCategoryIds = \DB::table('blog_categories')->get()->pluck('id');
         
         
         $faker = \Faker\Factory::create();
         
-        for ($i = 1; $i <= 100; $i ++) {
+        for ($i = 1; $i <= 30; $i ++) {
             
             \DB::table('blogs')->insert([
-                'name' => $faker->realText(40),
+                'name' => $faker->name(),
                 
                 'tag_id' => $tagIds->random(),
-                'product_category_id' => $productCategoryIds->random(),
-               // 'index_page' => rand(100, 999) % 2,
-               // 'price' => rand(100, 10000) / 100,
-               // 'old_price' => rand(100, 10000) / 100,
+                'blog_category_id' => $blogCategoryIds->random(),
+                'url'=>$faker->url,
+                'author'=>$faker->name,
+            
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);

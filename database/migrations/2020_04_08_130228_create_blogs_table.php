@@ -17,10 +17,10 @@ class CreateBlogsTable extends Migration
            $table->bigIncrements('id');
             $table->string('name', 255)->comment('Blog Name');
             
-           // $table->bigInteger('blog_category_id');
+            $table->bigInteger('blog_category_id');
             $table->bigInteger('tag_id');
-           // $table->boolean('index_page')->default(0)->comment('If blog should be displayed on index page');
-          //  $table->decimal('price', 12, 2)->default(0);
+           $table->string('url');
+           $table->string('author')->comment('Blog Author');
             $table->timestamps();
         });
     }

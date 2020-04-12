@@ -75,4 +75,7 @@ class Blog extends Model
             'blog' => $this->id,
         ]);
     }
+    public function getAuthorsProfilePicture(){
+        return url('/themes/front/img/avatar-1.jpg');
+    }
 }

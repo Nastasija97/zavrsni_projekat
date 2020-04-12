@@ -25,7 +25,7 @@
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="{{route('front.index.index')}}" class="nav-link active">Home</a>
+              <li class="nav-item "><a href="{{route('front.index.index')}}" class="nav-link active">Home</a>
               </li>
               <li class="nav-item"><a href="{{route('front.pages.blog')}}" class="nav-link">Blog</a>
               </li>

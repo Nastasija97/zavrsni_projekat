@@ -60,4 +60,21 @@ Route::prefix('/admin')->middleware('auth')->namespace('Admin')->group(function(
         Route::post('/update/{tag}', 'TagsController@update')->name('admin.tags.update');  // /admin/tags/add
         Route::post('/delete','TagsController@delete')->name('admin.tags.delete');
     });
+    
+     //Routes for BlogCategoriesController
+    Route::prefix('/blog-categories')->group(function () {
+        
+        Route::get('/', 'BlogCategoriesController@index')->name('admin.blog_categories.index'); // /admin/sizes
+        Route::get('/add', 'BlogCategoriesController@add')->name('admin.blog_categories.add');
+        Route::post('/insert', 'BlogCategoriesController@insert')->name('admin.blog_categories.insert');
+        
+        Route::get('/edit/{blogCategory}', 'BlogCategoriesController@edit')->name('admin.blog_categories.edit');
+        Route::post('/update/{blogCategory}', 'BlogCategoriesController@update')->name('admin.blog_categories.update');
+        
+        Route::post('/delete', 'BlogCategoriesController@delete')->name('admin.blog_categories.delete');
+        
+        Route::post('/change-priorities', 'BlogCategoriesController@changePriorities')->name('admin.blog_categories.change_priorities');
+        
+        
+    });
 });
