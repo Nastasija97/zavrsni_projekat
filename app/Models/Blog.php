@@ -13,14 +13,14 @@ class Blog extends Model
     
     //RELATIONSHIPS
     
-//    public function productCategory()
-//    {
-//        return $this->belongsTo(
-//            ProductCategory::class,
-//            'product_category_id', //preneseni kljuc u tabeli deteta
-//            'id' //naziv kljuca u tabeli roditelja
-//        );
-//    }
+    public function blogCategory()
+    {
+        return $this->belongsTo(
+            BlogCategory::class,
+            'blog_category_id', //preneseni kljuc u tabeli deteta
+            'id' //naziv kljuca u tabeli roditelja
+        );
+    }
     
 //    public function brand()
 //    {
@@ -51,20 +51,30 @@ class Blog extends Model
     }
     
     
-    
+       public function scopeImportantBlogPosts($queryBuilder)
+    {
+        $queryBuilder->where('important', 1)
+                ->where('created_at', '>=', date('Y-m-d', strtotime('-3 month')))
+                ->orderBy('created_at', 'desc');
+    }
     //HELPER FUNCTIONS
     
     /**
      * @return boolean
      */
    
-    
-    public function getPhoto1Url()
+    public function getBackgroundPhotoUrl()
+    {
+        return url('/themes/front/img/featured-pic-1.jpeg');
+    }
+
+
+    public function getBlogPostPhoto1Url()
     {
         return url('/themes/front/img/blog-post-1.jpeg');
     }
     
-    public function getPhoto2Url()
+    public function getBlogPostPhoto2Url()
     {
         return url('/themes/front/img/blog-post-2.jpeg');
     }

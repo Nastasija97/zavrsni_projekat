@@ -1,4 +1,4 @@
- <!-- Main Navbar-->
+  <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">
         <div class="search-area">
           <div class="search-area-inner d-flex align-items-center justify-content-center">

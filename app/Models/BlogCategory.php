@@ -10,12 +10,12 @@ class BlogCategory extends Model
     
     protected $fillable = ['name', 'description'];
     
-//    public function products()
-//    {
-//        return $this->hasMany(
-//            Product::class,
-//            'product_category_id',
-//            'id'
-//        ); //vraca query builder
-//    }
+    public function blog()
+    {
+        return $this->hasMany(
+            Blog::class,
+            'blog_category_id',
+            'id'
+        ); //vraca query builder
+    }
 }

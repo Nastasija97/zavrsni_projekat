@@ -30,12 +30,12 @@ class BlogsTableSeeder extends Seeder
             
             \DB::table('blogs')->insert([
                 'name' => $faker->name(),
-                
+                'description'=>$faker->realText(40),
                 'tag_id' => $tagIds->random(),
                 'blog_category_id' => $blogCategoryIds->random(),
                 'url'=>$faker->url,
                 'author'=>$faker->name,
-            
+            'important'=>rand(100,999)%2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
