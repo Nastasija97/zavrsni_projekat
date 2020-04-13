@@ -16,7 +16,7 @@ class Blog extends Model
     public function blogCategory()
     {
         return $this->belongsTo(
-            BlogCategory::class,
+           BlogCategory::class,
             'blog_category_id', //preneseni kljuc u tabeli deteta
             'id' //naziv kljuca u tabeli roditelja
         );
@@ -43,12 +43,7 @@ class Blog extends Model
     
     // QUERY SCOPES
     
-    public function scopeNewArrivals($queryBuilder)
-    {
-        $queryBuilder
-                ->where('created_at', '>=', date('Y-m-d', strtotime('-1 month')))
-                ->orderBy('created_at', 'desc');
-    }
+  
     
     
        public function scopeImportantBlogPosts($queryBuilder)
@@ -78,6 +73,8 @@ class Blog extends Model
     {
         return url('/themes/front/img/blog-post-2.jpeg');
     }
+   
+    
     
     public function getFrontUrl()
     {

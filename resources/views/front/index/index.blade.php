@@ -36,28 +36,11 @@
           @foreach($importantBlogPosts as $importantBlogPost)
         <!-- Post-->
         
-        <div class="row d-flex align-items-stretch">
-          <div class="text col-lg-7">
-            <div class="text-inner d-flex align-items-center">
-              <div class="content">
-                <header class="post-header">
-                  <div class="category"><a href="/themes/front/blog-category.html">{{$importantBlogPost->}}</a></div><a href="/themes/front/blog-post.html">
-                    <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
-                </header>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                <footer class="post-footer d-flex align-items-center"><a href="/themes/front/blog-author.html" class="author d-flex align-items-center flex-wrap">
-                    <div class="avatar"><img src="/themes/front/img/avatar-1.jpg" alt="..." class="img-fluid"></div>
-                    <div class="title"><span>John Doe</span></div></a>
-                  <div class="date"><i class="icon-clock"></i> 2 months ago</div>
-                  <div class="comments"><i class="icon-comment"></i>12</div>
-                </footer>
-              </div>
-            </div>
-          </div>
-          <div class="image col-lg-5"><img src="/themes/front/img/featured-pic-1.jpeg" alt="..."></div>
-        </div>
+        @include('front.index.single_blog_slide',[
+        'blog'=>$importantBlogPost
+        ])
         <!-- Post        -->
-        @endforach
+        @endforeach
 
        
       </div>
@@ -68,7 +51,7 @@
         <div class="row">
           <div class="col-md-7">
             <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2>
-            <a href="/themes/front/contact.html" class="hero-link">Contact Us</a>
+            <a href="{{route('front.contact.index')}}" class="hero-link">Contact Us</a>
           </div>
         </div>
       </div>
@@ -78,44 +61,18 @@
       <div class="container">
         <header> 
           <h2>Latest from the blog</h2>
-          <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p class="text-big">Latest posts from Bloggers that you may like.</p>
         </header>
         <div class="owl-carousel" id="latest-posts-slider">
+             
           <div class="row">
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-1.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Business</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Ways to remember your important ideas</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-2.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Technology</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Diversity in Engineering: Effect on Questions</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-3.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Financial</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Alberto Savoia Can Teach You About Interior</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
+                 @foreach($latestBlogPosts as $latestBlogPost)
+           @include('front.index.single_latest_blog_post',[
+           'blog'=>$latestBlogPost
+           ])
+           @endforeach
           </div>
+           
           <div class="row">
             <div class="post col-md-4">
               <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-2.jpg" alt="..." class="img-fluid"></a></div>

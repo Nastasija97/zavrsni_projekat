@@ -26,7 +26,7 @@ Route::get('/contact', 'ContactController@index')->name('front.contact.index');
 
 
 Route::get('/blog', 'BlogController@index')->name('front.pages.blog');
-Route::get('/blog/post/{post}','BlogController@singleBlog')->name('front.pages.blog_post');
+Route::get('/blog/post/{id}','BlogController@singleBlog')->name('front.pages.blog_post');
 //ruta za kategoriju 
 Route::get('/blog/category/{category}','BlogController@category')->name('front.pages.blog_category');
 //ruta za tag
