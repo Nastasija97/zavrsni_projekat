@@ -16,45 +16,29 @@
         <header>
             <h3 class="h6">Latest Posts</h3>
         </header>
-        <div class="blog-posts"><a href="blog-post.html">
+        <div class="blog-posts">
+            @foreach($latestBlogPosts as $latestBlogPost)
+            <a href="{{route('front.pages.blog_post',['id'=>$latestBlogPost->id])}}">
                 <div class="item d-flex align-items-center">
-                    <div class="image"><img src="/themes/front/img/small-thumbnail-1.jpg" alt="..." class="img-fluid"></div>
-                    <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
+                    <div class="image"><img src="{{$latestBlogPost->getBlogPostThumbPhotoUrl()}}" alt="Thumb" class="img-fluid"></div>
+                    <div class="title"><strong>{{$latestBlogPost->name}}</strong>
                         <div class="d-flex align-items-center">
                             <div class="views"><i class="icon-eye"></i> 500</div>
                             <div class="comments"><i class="icon-comment"></i>12</div>
                         </div>
                     </div>
-                </div></a><a href="blog-post.html">
-                <div class="item d-flex align-items-center">
-                    <div class="image"><img src="/themes/front/img/small-thumbnail-2.jpg" alt="..." class="img-fluid"></div>
-                    <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                        <div class="d-flex align-items-center">
-                            <div class="views"><i class="icon-eye"></i> 500</div>
-                            <div class="comments"><i class="icon-comment"></i>12</div>
-                        </div>
-                    </div>
-                </div></a><a href="blog-post.html">
-                <div class="item d-flex align-items-center">
-                    <div class="image"><img src="/themes/front/img/small-thumbnail-3.jpg" alt="..." class="img-fluid"></div>
-                    <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                        <div class="d-flex align-items-center">
-                            <div class="views"><i class="icon-eye"></i> 500</div>
-                            <div class="comments"><i class="icon-comment"></i>12</div>
-                        </div>
-                    </div>
-                </div></a></div>
+                </div></a>
+            @endforeach
+        </div>
     </div>
     <!-- Widget [Categories Widget]-->
     <div class="widget categories">
         <header>
             <h3 class="h6">Categories</h3>
         </header>
-        <div class="item d-flex justify-content-between"><a href="blog-category.html">Growth</a><span>12</span></div>
-        <div class="item d-flex justify-content-between"><a href="blog-category.html">Local</a><span>25</span></div>
-        <div class="item d-flex justify-content-between"><a href="blog-category.html">Sales</a><span>8</span></div>
-        <div class="item d-flex justify-content-between"><a href="blog-category.html">Tips</a><span>17</span></div>
-        <div class="item d-flex justify-content-between"><a href="blog-category.html">Local</a><span>25</span></div>
+        @foreach($blogCategories as $blogCategory)
+        <div class="item d-flex justify-content-between"><a href="{{route('front.pages.blog_category',['category'=>$blogCategory->name])}}">{{$blogCategory->name}}</a><span>12</span></div>
+       @endforeach
     </div>
     <!-- Widget [Tags Cloud Widget]-->
     <div class="widget tags">       
@@ -62,11 +46,9 @@
             <h3 class="h6">Tags</h3>
         </header>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="blog-tag.html" class="tag">#Business</a></li>
-            <li class="list-inline-item"><a href="blog-tag.html" class="tag">#Technology</a></li>
-            <li class="list-inline-item"><a href="blog-tag.html" class="tag">#Fashion</a></li>
-            <li class="list-inline-item"><a href="blog-tag.html" class="tag">#Sports</a></li>
-            <li class="list-inline-item"><a href="blog-tag.html" class="tag">#Economy</a></li>
+            @foreach($blogTags as $blogTag)
+            <li class="list-inline-item"><a href="{{route('front.pages.blog_tag',['tag'=>$blogTag->name])}}" class="tag">#{{$blogTag->name}}</a></li>
+           @endforeach
         </ul>
     </div>
 </aside>

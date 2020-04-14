@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration {
             $table->bigInteger('blog_category_id');
             $table->bigInteger('tag_id');
             $table->string('url')->nullable();
+            $table->string('url_description');
             $table->string('author')->nullable()->comment('Blog Author from the Users Table');
             $table->boolean('important')->default(0)->comment('If product should be displayed on index page');
             $table->timestamps();

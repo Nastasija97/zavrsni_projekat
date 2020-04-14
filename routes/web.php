@@ -34,7 +34,7 @@ Route::get('/blog/tag/{tag}','BlogController@tag')->name('front.pages.blog_tag')
 //ruta za pretragu
 Route::get('/blog/search/{searchParam}','BlogController@search')->name('front.pages.blog_search');
 //ruta za autora
-Route::get('/blog/author/{author}','BlogController@author')->name('front.pages.blog_author');
+Route::get('/blog/author/{id}/{author}','BlogController@author')->name('front.pages.blog_author');
 
 
 

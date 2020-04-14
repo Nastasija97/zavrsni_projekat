@@ -66,7 +66,7 @@ class Blog extends Model
 
     public function getBlogPostPhoto1Url()
     {
-        return url('/themes/front/img/blog-post-1.jpeg');
+        return url('/themes/front/img/blog-post-3.jpeg');
     }
     
     public function getBlogPostPhoto2Url()
@@ -85,4 +85,8 @@ class Blog extends Model
     public function getAuthorsProfilePicture(){
         return url('/themes/front/img/avatar-1.jpg');
     }
+    public function getBlogPostThumbPhotoUrl(){
+        return url('/themes/front/img/small-thumbnail-1.jpg');
+    }
+    
 }

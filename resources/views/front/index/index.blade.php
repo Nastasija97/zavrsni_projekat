@@ -11,7 +11,7 @@
           <div class="row">
             <div class="col-lg-7">
               <h1>{{$blogPost->name}}</h1>
-              <a href="{{$blogPost->url}}" class="hero-link">Checkout More</a>
+              <a href="{{$blogPost->url}}" class="hero-link">{{$blogPost->url_description}}</a>
             </div>
           </div>
         </div>
@@ -70,79 +70,10 @@
            @include('front.index.single_latest_blog_post',[
            'blog'=>$latestBlogPost
            ])
-           @endforeach
+               @endforeach
           </div>
            
-          <div class="row">
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-2.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Technology</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Diversity in Engineering: Effect on Questions</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-3.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Financial</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Alberto Savoia Can Teach You About Interior</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-1.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Business</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Ways to remember your important ideas</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-1.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Business</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Ways to remember your important ideas</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-2.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Technology</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Diversity in Engineering: Effect on Questions</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-            <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="/themes/front/blog-post.html"><img src="/themes/front/img/blog-3.jpg" alt="..." class="img-fluid"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                  <div class="category"><a href="/themes/front/blog-category.html">Financial</a></div>
-                </div><a href="/themes/front/blog-post.html">
-                  <h3 class="h4">Alberto Savoia Can Teach You About Interior</h3></a>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              </div>
-            </div>
-          </div>
+       
         </div>
       </div>
     </section>

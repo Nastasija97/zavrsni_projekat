@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
         \DB::table('users')->truncate();
         
         \DB::table('users')->insert([
-            'name'=>'Nastasija',
+            'name'=>'Nastasija Perovic',
             'email'=>'nastasija@gmail.com',
             'password'=>\Hash::make('cubesphp'),
             'created_at'=>date('Y-m-d H:i:s'),
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             
         ]);
         \DB::table('users')->insert([
-            'name'=>'Pera',
+            'name'=>'Will Byers',
             'email'=>'pera@gmail.com',
             'password'=>\Hash::make('cubesphp'),
             'created_at'=>date('Y-m-d H:i:s'),
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
             
         ]);
         \DB::table('users')->insert([
-            'name'=>'Mika',
+            'name'=>'Anthony Hockins',
             'email'=>'mika@gmail.com',
             'password'=>\Hash::make('cubesphp'),
             'created_at'=>date('Y-m-d H:i:s'),
@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
             
         ]);
         \DB::table('users')->insert([
-            'name'=>'Zika',
+            'name'=>'Nina Petrovic',
             'email'=>'zika@gmail.com',
             'password'=>\Hash::make('cubesphp'),
             'created_at'=>date('Y-m-d H:i:s'),
@@ -50,7 +50,7 @@ class UsersTableSeeder extends Seeder
             
         ]);
         \DB::table('users')->insert([
-            'name'=>'Laza',
+            'name'=>'Lazar Nikolic',
             'email'=>'laza@gmail.com',
             'password'=>\Hash::make('cubesphp'),
             'created_at'=>date('Y-m-d H:i:s'),

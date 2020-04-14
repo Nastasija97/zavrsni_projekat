@@ -22,7 +22,7 @@ class BlogsTableSeeder extends Seeder
         $tagIds = $tags->pluck('id');
         
         $blogCategoryIds = \DB::table('blog_categories')->get()->pluck('id');
-        
+        $users=\DB::table('users')->get()->pluck('name');
         
         $faker = \Faker\Factory::create();
         
@@ -34,7 +34,8 @@ class BlogsTableSeeder extends Seeder
                 'tag_id' => $tagIds->random(),
                 'blog_category_id' => $blogCategoryIds->random(),
                 'url'=>$faker->url,
-                'author'=>$faker->name,
+                'url_description'=>$faker->text(30),
+                'author'=>$users->random(),
             'important'=>rand(100,999)%2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
