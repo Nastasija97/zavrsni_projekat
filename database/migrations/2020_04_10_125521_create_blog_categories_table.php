@@ -17,6 +17,7 @@ class CreateBlogCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',255);
             $table->text('description')->nullable();
+              $table->integer('priority')->default(0);
             $table->timestamps();
         });
     }

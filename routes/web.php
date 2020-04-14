@@ -77,4 +77,55 @@ Route::prefix('/admin')->middleware('auth')->namespace('Admin')->group(function(
         
         
     });
+    
+    
+    
+        //Routes for BlogsController
+    Route::prefix('/blogs')->group(function () {
+        
+        Route::get('/', 'BlogsController@index')->name('admin.blogs.index'); // /admin/sizes
+        Route::get('/add', 'BlogsController@add')->name('admin.blogs.add');
+        Route::post('/insert', 'BlogsController@insert')->name('admin.blogs.insert');
+        
+        Route::get('/edit/{blog}', 'BlogsController@edit')->name('admin.blogs.edit');
+        Route::post('/update/{blog}', 'BlogsController@update')->name('admin.blogs.update');
+        
+        Route::post('/delete', 'BlogsController@delete')->name('admin.blogs.delete');
+        Route::post('/delete-photo/{blog}', 'BlogsController@deletePhoto')->name('admin.blogs.delete_photo');
+        
+		Route::post('/datatable', 'BlogsController@datatable')->name('admin.blogs.datatable');
+    });
+	
+    //Routes for UsersController
+    Route::prefix('/users')->group(function () {
+        
+        Route::get('/', 'UsersController@index')->name('admin.users.index'); // /admin/sizes
+        Route::get('/add', 'UsersController@add')->name('admin.users.add');
+        Route::post('/insert', 'UsersController@insert')->name('admin.users.insert');
+        
+        Route::get('/edit/{user}', 'UsersController@edit')->name('admin.users.edit');
+        Route::post('/update/{user}', 'UsersController@update')->name('admin.users.update');
+        
+        Route::post('/delete', 'UsersController@delete')->name('admin.users.delete');
+        Route::post('/disable', 'UsersController@disable')->name('admin.users.disable');
+        Route::post('/enable', 'UsersController@enable')->name('admin.users.enable');
+        Route::post('/delete-photo/{user}', 'UsersController@deletePhoto')->name('admin.users.delete_photo');
+        
+		Route::post('/datatable', 'UsersController@datatable')->name('admin.users.datatable');
+    });
+	
+    	//Routes for ProfileController
+    Route::prefix('/profile')->group(function () {
+        
+        
+        Route::get('/edit', 'ProfileController@edit')->name('admin.profile.edit');
+        Route::post('/update', 'ProfileController@update')->name('admin.profile.update');
+        
+		Route::post('/delete-photo', 'ProfileController@deletePhoto')->name('admin.profile.delete_photo');
+		
+		Route::get('/change-password', 'ProfileController@changePassword')->name('admin.profile.change_password');
+		Route::post('/change-password', 'ProfileController@changePasswordConfirm')->name('admin.profile.change_password_confirm');
+    });
+    
+    
 });

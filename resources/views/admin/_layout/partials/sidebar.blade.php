@@ -60,6 +60,52 @@
                         </li>
                     </ul>
                 </li>
+                   <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                            Blogs
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.blogs.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Blogs list</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.blogs.add')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Blog</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                       <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                            Users
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.users.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Users list</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.users.add')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add user</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

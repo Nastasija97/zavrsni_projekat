@@ -8,8 +8,11 @@ class Blog extends Model
 {
     //mapped to table tags
     protected $table = 'blogs';
-    
-    
+  
+     protected $fillable = [
+        'blog_category_id','tag_id', 'name', 'description',
+         'important', 'details'
+    ];
     
     //RELATIONSHIPS
     
@@ -57,6 +60,11 @@ class Blog extends Model
     /**
      * @return boolean
      */
+    
+       public function isOnIndexPage()
+    {
+        return $this->important == 1 ? true : false;
+    }
    
     public function getBackgroundPhotoUrl()
     {
@@ -74,12 +82,78 @@ class Blog extends Model
         return url('/themes/front/img/blog-post-2.jpeg');
     }
    
+    public function getPhoto1ThumbUrl()
+	{
+		
+		if ($this->photo1) {
+			return url('/storage/blogs/thumbs/' . $this->photo1);
+		}
+		
+		return url('/themes/front/img/small-thumbnail-1');
+	}
+	
+	public function deletePhoto1()
+	{
+		if (!$this->photo1) {
+			return $this; //fluent interface
+		}
+		
+		$photoFilePath = public_path('/storage/blogs/' . $this->photo1);
+		
+		if (!is_file($photoFilePath)) {
+			//informacija o fajlu postoji u bazi
+			//ali fajl e postoji fizicki na Hard Disku
+			return $this;
+		}
+		
+		unlink($photoFilePath);
+		
+		//brisanje thumb verzije
+		
+		$photoThumbPath = public_path('/storage/blogs/thumbs/' . $this->photo1);
+		
+		if (!is_file($photoThumbPath)) {
+			//thumb slika ne postoji na disku
+			return $this;
+		}
+		
+		unlink($photoThumbPath);
+		
+		return $this;
+	}
+          public function getPhoto2Url()
+    {
+		if ($this->photo2) {
+			return url('/storage/products/' . $this->photo2);
+		}
+		
+        return url('/themes/front/img/blog-post-2');
+    }
     
-    
+    public function getPhoto2ThumbUrl()
+	{
+		//originalna slika: /storage/products/11_photo1_blabla.png - 600x800
+		//thumb slika		: /storage/products/thumbs/11_photo1_blabla.png  - 300 x 300
+		
+		if ($this->photo2) {
+			return url('/storage/products/thumbs/' . $this->photo2);
+		}
+		
+		return url('/themes/front/img/small-thumbnail-3');
+	}
+        public function deletePhotos()
+	{
+		$this->deletePhoto1();
+		$this->deletePhoto2();
+		
+		return $this;
+	}
+	
     public function getFrontUrl()
     {
         return route('front.pages.blog_post', [
             'blog' => $this->id,
+            'seoSlug' => \Str::slug($this->name),
         ]);
     }
     public function getAuthorsProfilePicture(){
@@ -88,5 +162,7 @@ class Blog extends Model
     public function getBlogPostThumbPhotoUrl(){
         return url('/themes/front/img/small-thumbnail-1.jpg');
     }
+    
+    
     
 }

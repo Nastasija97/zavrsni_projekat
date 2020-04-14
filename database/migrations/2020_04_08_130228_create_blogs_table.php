@@ -21,7 +21,10 @@ class CreateBlogsTable extends Migration {
             $table->string('url')->nullable();
             $table->string('url_description');
             $table->string('author')->nullable()->comment('Blog Author from the Users Table');
-            $table->boolean('important')->default(0)->comment('If product should be displayed on index page');
+            $table->boolean('important')->default(0)->comment('If blog should be displayed on index page');
+            $table->string('photo1')->nullable();
+            $table->string('photo2')->nullable();
+            $table->longText('details')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +36,9 @@ class CreateBlogsTable extends Migration {
      */
     public function down() {
         Schema::dropIfExists('blogs');
+        $table->dropColumn('photo1');
+        $table->dropColumn('photo2');
+        $table->dropColumn('details');
     }
 
 }
