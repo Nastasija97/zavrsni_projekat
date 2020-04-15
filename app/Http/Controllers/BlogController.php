@@ -59,7 +59,7 @@ class BlogController extends Controller {
         ]);
     }
 
-    public function singleBlog(Request $request) {
+    public function singleBlog(Request $request,Blog $blog) {
         
           $formData = $request->validate([
             'blog_category_id' => ['nullable', 'array', 'exists:blog_categories,id'],
@@ -68,37 +68,11 @@ class BlogController extends Controller {
         ]);
         
        
-         $blogsQuery = Blog::query()
-            ->with(['blogCategory', 'tags']); //smestiti query builder u varijablu
-        
-        if (isset($formData['blog_category_id'])) {
-            
-            $blogsQuery->whereIn('blog_category_id', $formData['blog_category_id']);
-        }
-        if (isset($formData['author'])) {
-            
-            $blogsQuery->whereIn('author', $formData['author']);
-        }
-        
-        if (isset($formData['tag_id'])) {
-            
-            $blogsQuery->whereIn('tag_id', $formData['tag_id']);
-        } 
-        
-      
-         
-         
-      
-                $blogs = $blogsQuery->paginate(4);
-       
-        $blogs->appends($formData);
-                
         
         
         
-        $latestBlogPosts = Blog::query()
-                        ->orderBy('created_at', 'desc')
-                        ->limit(3)->get();
+        
+        
        $blogCategories = BlogCategory::query()
                 ->orderBy('name')
                 ->get();
@@ -107,7 +81,7 @@ class BlogController extends Controller {
           //  ->withCount(['blogs'])
             ->get();
         return view('front.pages.blog_post', [
-            'latestBlogPosts' => $latestBlogPosts,
+            'blog'=>$blog,
             'blogCategories' => $blogCategories,
             'blogTags' => $blogTags,
         ]);
@@ -186,7 +160,7 @@ class BlogController extends Controller {
         ]);
     }
 
-    public function category(Request $request) {
+    public function category(Request $request,BlogCategory $blogCategory) {
         $latestBlogPosts = Blog::query()
                         ->orderBy('created_at', 'desc')
                         ->limit(3)->get();
@@ -195,13 +169,19 @@ class BlogController extends Controller {
                 ->get();
         $blogTags = Tag::query()
                 ->orderBy('name', 'ASC')
+               
           //  ->withCount(['blogs'])
             ->get();
+        $blogs= Blog::query()
+                 ->where('category_id',$blogCategory->id)
+                ->get();
         
         return view('front.pages.blog_category', [
             'latestBlogPosts' => $latestBlogPosts,
             'blogCategories' => $blogCategories,
             'blogTags' => $blogTags,
+            'blogCategory'=>$blogCategory,
+            'blogPosts'=>$blogs,
         ]);
     }
 

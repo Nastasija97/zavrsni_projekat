@@ -7,23 +7,26 @@
         <main class="post blog-post col-lg-8"> 
           <div class="container">
             <div class="post-single">
-              <div class="post-thumbnail"><img src="/themes/front/img/blog-post-3.jpeg" alt="..." class="img-fluid"></div>
+                <div class="post-thumbnail"><img src="{{$blog->getBlogPostPhoto1Url()}}" alt="..." class="img-fluid"></div>
               <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
-                  <div class="category"><a href="blog-category.html">Business</a></div>
+                  <div class="category"><a href="{{route('front.pages.blog_category',['category'=>$blog->blogCategory->name])}}">{{$blog->blogCategory()->name}}</a></div>
                 </div>
-                <h1>Diversity in Engineering: The Effect on Questions<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
-                <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="blog-author.html" class="author d-flex align-items-center flex-wrap">
+                <h1>{{$blog->name}}<a href="{{route('front.pages.blog_post',['id'=>$blogPost->id])}}"><i class="fa fa-bookmark-o"></i></a></h1>
+                <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="{{route('front.pages.blog_author',['id'=>$blogPost->id,'author'=>$blogPost->author])}}" class="author d-flex align-items-center flex-wrap">
                     <div class="avatar"><img src="/themes/front/img/avatar-1.jpg" alt="..." class="img-fluid"></div>
-                    <div class="title"><span>John Doe</span></div></a>
+                    <div class="title"><span>{{$blog->author}}</span></div></a>
                   <div class="d-flex align-items-center flex-wrap">       
-                    <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                    <div class="date"><i class="icon-clock"></i> {{$blogPost->created_at->now()}}</div>
                     <div class="views"><i class="icon-eye"></i> 500</div>
                     <div class="comments meta-last"><a href="/themes/front/"#post-comments"><i class="icon-comment"></i>12</a></div>
                   </div>
                 </div>
                 <div class="post-body">
                   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  
+                  <!--wysiwyg editor-->
+                  
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p> <img src="/themes/front/img/featured-pic-3.jpeg" alt="..." class="img-fluid"></p>
                   <h3>Lorem Ipsum Dolor</h3>
